@@ -1,4 +1,4 @@
-import boto3
+ import boto3
 
 
 def lambda_handler(event, context):
@@ -10,12 +10,12 @@ def lambda_handler(event, context):
         'SlaveInstanceType': 'm3.xlarge',
         'InstanceCount': 2,
         'InstanceGroups': [],
-        'Ec2KeyName': 'spark',
+        'Ec2KeyName': 'test',
         'KeepJobFlowAliveWhenNoSteps': True,
         'TerminationProtected': False,
-        'Ec2SubnetId': 'subnet-b51b2fd3',
-        'EmrManagedMasterSecurityGroup': 'sg-00e712ec1b09f676e',
-        'EmrManagedSlaveSecurityGroup':  'sg-0e9ebbfd18d0669a8'
+        'Ec2SubnetId': 'subnet-016a844a',
+        'EmrManagedMasterSecurityGroup': 'sg-049dd09b732123527',
+        'EmrManagedSlaveSecurityGroup':  'sg-0ad314d6b89cc6fa7'
     }
 
     configurations = [
@@ -41,7 +41,7 @@ def lambda_handler(event, context):
 
     response = client.run_job_flow(
         Name='PySpark Cluster',
-        LogUri='s3://aws-logs-788660014500-eu-west-1/emr-logs',
+        LogUri='s3://rohith-test123/emr-logs',
         ReleaseLabel='emr-5.30.0',
         Instances=instances,
         Configurations=configurations,
