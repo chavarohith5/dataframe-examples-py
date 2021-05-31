@@ -13,7 +13,7 @@ if __name__ == '__main__':
     spark = SparkSession \
         .builder \
         .appName("Read Files") \
-        .master('local[*]') \
+
         .getOrCreate()
 
     spark.sparkContext.setLogLevel('ERROR')
